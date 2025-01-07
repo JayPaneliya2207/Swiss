@@ -1,0 +1,96 @@
+.sidebar {
+  width: 250px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #333;
+  transition: transform 0.3s ease, width 0.3s ease;
+  transform: translateX(0);
+  overflow: hidden;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px 10px 10px 10px;
+}
+
+.sidebar .active {
+  background-color: #748d92;
+}
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.menu-icon {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #254E58;
+  color: white;
+  padding: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #88BDBC;
+}
+
+.submenu {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+  }
+}
