@@ -6,18 +6,21 @@ import { Package } from '../../types/package';
 
 const packageData: Package[] = [
   {
+    id: 1,
     name: 'Free package',
     invoiceDate: `Jan 13,2023`,
     status: 'Paid',
   },
 ];
 const FreeMachineList: React.FC = () => {
-
   return (
     <>
       <Breadcrumb pageName="FreeMachine List" />
       <div className="col-sm-12">
-        <div className="btn-group float-sm-right add-button" style={{justifyContent:"end"}}>
+        <div
+          className="btn-group float-sm-right add-button"
+          style={{ justifyContent: 'end' }}
+        >
           <button className="btn btn-success btn-sm">Add Machines</button>
         </div>
       </div>
