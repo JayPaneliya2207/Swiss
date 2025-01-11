@@ -236,7 +236,6 @@ export const MENU: {
     icon: 'CREATE',
     children: [],
   },
-  //buttons end
   {
     id: 35,
     title: 'Support',
@@ -258,19 +257,19 @@ export const MENU: {
     ],
   },
   {
-    id: 35,
+    id: 38,
     title: 'Setting',
     path: '/setting',
     icon: 'IOSETTINGS',
     children: [
       {
-        id: 36,
+        id: 39,
         title: 'General settings',
         path: '/setting/general-setting',
         icon: 'USER',
       },
       {
-        id: 37,
+        id: 40,
         title: 'Database Backup',
         path: '/setting/back-up-setting',
         icon: 'USER',
@@ -278,14 +277,14 @@ export const MENU: {
     ],
   },
   {
-    id: 38,
+    id: 41,
     title: 'Change Password',
     path: 'password/change-password',
     icon: 'MDOUTLINEPASSWORD',
     children: [],
   },
   {
-    id: 39,
+    id: 42,
     title: 'Logout',
     path: '/logout',
     icon: 'CILOGOUT',
