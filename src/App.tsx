@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
@@ -47,8 +46,12 @@ import DataBaseBackUp from './pages/Settings/DataBaseBackUp';
 import MachineList from './pages/MachineMaster/MachineList';
 import EditUser from './pages/Users/EditUser';
 import EditMachine from './pages/Machine/EditMachine';
+import Login from './pages/Login/Login';
+import ChangePassword from './pages/Password/ChangePassword';
+
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -62,27 +65,17 @@ function App() {
   return loading ? (
     <Loader />
   ) : (
-    <DefaultLayout>
-      <Routes>
-        <Route
-          index
-          element={
-            <>
-              <PageTitle title="Dashboard" />
-              <Dashboard />
-            </>
-          }
-        />
-        <Route
-          index
-          element={
-            <>
-              <PageTitle title="Users" />
-              <AllUsers />
-            </>
-          }
-        />
+    <Routes>
+      <Route
+        path="/"
+        element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />}
+      />
 
+      <Route element={<DefaultLayout children={undefined} />}>
+        <Route
+          path="/dashboard"
+          element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
+        />
         <Route
           path="/users/all-users"
           element={
@@ -96,7 +89,7 @@ function App() {
           path="/users/all-users/edituser/:id"
           element={
             <>
-              <PageTitle title="edit user" />
+              <PageTitle title="Edit User" />
               <EditUser />
             </>
           }
@@ -110,7 +103,6 @@ function App() {
             </>
           }
         />
-        {/* machines */}
         <Route
           path="/machines-list"
           element={
@@ -129,12 +121,11 @@ function App() {
             </>
           }
         />
-        {/* distributor */}
         <Route
           path="/distributor/add-distributor"
           element={
             <>
-              <PageTitle title="Add distributor" />
+              <PageTitle title="Add Distributor" />
               <AddDistributor />
             </>
           }
@@ -143,12 +134,11 @@ function App() {
           path="/distributor/distributor-list"
           element={
             <>
-              <PageTitle title="All distributor" />
+              <PageTitle title="All Distributor" />
               <DistributorList />
             </>
           }
         />
-        {/* Machine */}
         <Route
           path="/Machine/machine-list"
           element={
@@ -180,7 +170,7 @@ function App() {
           path="/Machine/free-machine-list"
           element={
             <>
-              <PageTitle title="FreeMachine List" />
+              <PageTitle title="Free Machine List" />
               <FreeMachineList />
             </>
           }
@@ -194,7 +184,6 @@ function App() {
             </>
           }
         />
-        {/* franchise */}
         <Route
           path="/franchise/add-franchise"
           element={
@@ -285,8 +274,6 @@ function App() {
             </>
           }
         />
-
-        {/* Coin */}
         <Route
           path="/coin/add-coin"
           element={
@@ -305,7 +292,6 @@ function App() {
             </>
           }
         />
-        {/* Adjust Rewards */}
         <Route
           path="/rewards/adjust-rewards"
           element={
@@ -315,7 +301,6 @@ function App() {
             </>
           }
         />
-        {/* Reward */}
         <Route
           path="/Earnings/Reset-earnings"
           element={
@@ -334,8 +319,6 @@ function App() {
             </>
           }
         />
-
-        {/* Support */}
         <Route
           path="/support/approved"
           element={
@@ -354,7 +337,6 @@ function App() {
             </>
           }
         />
-        {/* setting */}
         <Route
           path="/setting/general-setting"
           element={
@@ -364,7 +346,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="setting/back-up-setting"
           element={
@@ -374,16 +355,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/logout"
-          element={
-            <>
-              <PageTitle title="Logout" />
-            </>
-          }
-        />
-        {/* other componant */}
-
+        <Route path="/logout" element={<PageTitle title="Logout" />} />
         <Route
           path="/calendar"
           element={
@@ -424,7 +396,7 @@ function App() {
           path="/tables"
           element={
             <>
-              <PageTitle title="Tables " />
+              <PageTitle title="Tables" />
               <Tables />
             </>
           }
@@ -435,6 +407,24 @@ function App() {
             <>
               <PageTitle title="Settings" />
               <Settings />
+            </>
+          }
+        />
+        <Route
+          path="/auth/signin"
+          element={
+            <>
+              <PageTitle title="Signin" />
+              <SignIn />
+            </>
+          }
+        />
+        <Route
+          path="/auth/signup"
+          element={
+            <>
+              <PageTitle title="Signup" />
+              <SignUp />
             </>
           }
         />
@@ -466,25 +456,26 @@ function App() {
           }
         />
         <Route
-          path="/auth/signin"
+          path=""
           element={
             <>
-              <PageTitle title="Signin" />
-              <SignIn />
+              <PageTitle title="Buttons" />
+              <Buttons />
             </>
           }
         />
         <Route
-          path="/auth/signup"
+          path="/password/change-password"
           element={
             <>
-              <PageTitle title="Signup" />
-              <SignUp />
+              <PageTitle title="change password" />
+              <ChangePassword />
             </>
           }
         />
-      </Routes>
-    </DefaultLayout>
+      </Route>
+    </Routes>
   );
 }
+
 export default App;

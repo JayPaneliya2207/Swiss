@@ -14,7 +14,7 @@ export const MENU: {
   {
     id: 1,
     title: 'Dashboard',
-    path: '/',
+    path: '/dashboard',
     icon: 'DASHBOARD',
     children: [],
   },
@@ -279,7 +279,7 @@ export const MENU: {
   {
     id: 41,
     title: 'Change Password',
-    path: 'password/change-password',
+    path: '/password/change-password',
     icon: 'MDOUTLINEPASSWORD',
     children: [],
   },

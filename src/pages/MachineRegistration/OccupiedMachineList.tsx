@@ -5,6 +5,7 @@ import { Package } from '../../types/package';
 
 const packageData: Package[] = [
   {
+    id: 1,
     name: 'Free package',
     invoiceDate: `Jan 13,2023`,
     status: 'Paid',
