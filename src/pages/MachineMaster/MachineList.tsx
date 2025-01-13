@@ -5,9 +5,11 @@ import ProductOne from '../../images/product/product-01.png';
 import ProductTwo from '../../images/product/product-02.png';
 import ProductThree from '../../images/product/product-03.png';
 import '../../css/form.css';
+import { useNavigate } from 'react-router-dom';
 
 const productData: Product[] = [
   {
+    id: 1,
     image: ProductOne,
     name: 'Apple Watch Series 7',
     category: 'Electronics',
@@ -16,6 +18,7 @@ const productData: Product[] = [
     profit: 45,
   },
   {
+    id: 2,
     image: ProductTwo,
     name: 'Macbook Pro M1',
     category: 'Electronics',
@@ -24,6 +27,7 @@ const productData: Product[] = [
     profit: 125,
   },
   {
+    id: 3,
     image: ProductThree,
     name: 'Dell Inspiron 15',
     category: 'Electronics',
@@ -32,7 +36,16 @@ const productData: Product[] = [
     profit: 247,
   },
 ];
+
 const MachineList: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleEditClick = (id: number) => {
+    navigate(`/machines-list/update-machine/${id}`);
+  };
+  const handleDeleteClick = (id: number) => {
+    console.log('hello', id);
+  };
   return (
     <>
       <Breadcrumb pageName="Machine List" />
@@ -46,7 +59,7 @@ const MachineList: React.FC = () => {
       </div>
 
       <div className="rounded-sm border mt-6 border-stroke bg-white px-4 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-        <div className="max-w-full overflow-x-auto custom-scrollbar">
+        <div className="max-w-full overflow-x-auto">
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">
@@ -145,8 +158,18 @@ const MachineList: React.FC = () => {
 
                   <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark flex gap-2">
                     <h5 className="font-medium text-black dark:text-white flex items-center gap-2">
-                      <button className="btn btn-primary">Edit</button>
-                      <button className="btn btn-danger">Delete</button>
+                      <button
+                        onClick={() => handleEditClick(packageItem.id)}
+                        className="btn btn-primary"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDeleteClick(packageItem.id)}
+                        className="btn btn-danger"
+                      >
+                        Delete
+                      </button>
                     </h5>
                   </td>
                 </tr>

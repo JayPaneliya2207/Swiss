@@ -6,7 +6,7 @@ import { Package } from '../../types/package';
 
 const packageData: Package[] = [
   {
-    id:1,
+    id: 1,
     name: 'Free package',
     invoiceDate: `Jan 13,2023`,
     status: 'Paid',
@@ -77,7 +77,7 @@ const DistributorList: React.FC = () => {
         >
           | All Distributor:(0)
         </div>
-        <div className="max-w-full overflow-x-auto custom-scrollbar">
+        <div className="max-w-full overflow-x-autor">
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">

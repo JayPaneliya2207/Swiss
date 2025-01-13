@@ -75,6 +75,7 @@ import CompanyInfoSetting from './pages/Settings/CompanyInfoSetting';
 import PaymentMethodAcceptUpiSetting from './pages/Settings/PaymentMethodAcceptUpiSetting';
 import PaymentMethodAcceptBankSetting from './pages/Settings/PaymentMethodAcceptBankSetting';
 import PaymentMethodAcceptUsdtSetting from './pages/Settings/PaymentMethodAcceptUsdtSetting';
+import UpdateMachine from './pages/MachineMaster/UpdateMachine';
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
@@ -126,6 +127,15 @@ function App() {
             <>
               <PageTitle title="edit user" />
               <EditMachine />
+            </>
+          }
+        />
+        <Route
+          path="machines-list/update-machine/:id"
+          element={
+            <>
+              <PageTitle title="edit user" />
+              <UpdateMachine />
             </>
           }
         />

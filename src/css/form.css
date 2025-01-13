@@ -124,12 +124,12 @@
 /* scrollbar-x css */
 .max-w-full {
   overflow-x: auto;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
   -ms-overflow-style: none;
 }
-.max-w-full::-webkit-scrollbar {
+/* .max-w-full::-webkit-scrollbar {
   display: none;
-}
+} */
 .add-button {
   display: flex;
   margin-bottom: 20px;

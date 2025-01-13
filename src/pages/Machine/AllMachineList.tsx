@@ -21,7 +21,17 @@ const packageData: Package[] = [
 ];
 const AllMachineList: React.FC = () => {
   const [enabled, setEnabled] = useState<boolean>(false);
+  const [toggleStates, setToggleStates] = useState<Record<number, boolean>>(
+    packageData.reduce((acc, item) => ({ ...acc, [item.id]: false }), {}),
+  );
   const navigate = useNavigate();
+
+  const handleToggleChange = (id: number) => {
+    setToggleStates((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   const handleEditClick = (id: number) => {
     navigate(`/machines-list/edit-machine/${id}`);
@@ -99,7 +109,7 @@ const AllMachineList: React.FC = () => {
         >
           | All Free machines: ({packageData.length})
         </div>
-        <div className="max-w-full overflow-x-auto custom-scrollbar">
+        <div className="max-w-full overflow-x-auto">
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">
@@ -212,23 +222,25 @@ const AllMachineList: React.FC = () => {
                       <h5 className="font-medium text-black dark:text-white">
                         <div>
                           <label
-                            htmlFor="toggle1"
+                            htmlFor={`toggle-${packageItem.id}`}
                             className="flex cursor-pointer select-none items-center"
                           >
                             <div className="relative">
                               <input
                                 type="checkbox"
-                                id="toggle1"
+                                id={`toggle-${packageItem.id}`}
                                 className="sr-only"
-                                onChange={() => {
-                                  setEnabled(!enabled);
-                                }}
+                                checked={toggleStates[packageItem.id]}
+                                onChange={() =>
+                                  handleToggleChange(packageItem.id)
+                                }
                               />
                               <div className="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
                               <div
                                 className={`absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ${
-                                  enabled &&
-                                  '!right-1 !translate-x-full !bg-primary dark:!bg-white'
+                                  toggleStates[packageItem.id]
+                                    ? 'translate-x-full bg-primary'
+                                    : ''
                                 }`}
                               ></div>
                             </div>

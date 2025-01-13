@@ -74,7 +74,7 @@ const PaidPayout: React.FC = () => {
         >
           | Total Payouts: 5
         </div>
-        <div className="max-w-full overflow-x-auto custom-scrollbar">
+        <div className="max-w-full overflow-x-auto">
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">
