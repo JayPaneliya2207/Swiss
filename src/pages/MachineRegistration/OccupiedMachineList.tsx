@@ -2,6 +2,7 @@ import React from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import '../../css/form.css';
 import { Package } from '../../types/package';
+import { useNavigate } from 'react-router-dom';
 
 const packageData: Package[] = [
   {
@@ -13,6 +14,15 @@ const packageData: Package[] = [
 ];
 
 const OccupiedMachineList: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleEditClick = (id: number) => {
+    navigate(`/Machine/occupied-machine-list/edit-occupied-machine/${id}`);
+  };
+
+  const handleDeleteClick = (id: number) => {
+    console.log('hello', id);
+  };
   return (
     <>
       <Breadcrumb pageName="Occupied Machine List" />
@@ -197,8 +207,18 @@ const OccupiedMachineList: React.FC = () => {
 
                   <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark flex gap-2">
                     <h5 className="font-medium text-black dark:text-white flex items-center gap-2">
-                      <button className="btn btn-primary">Edit</button>
-                      <button className="btn btn-danger">Delete</button>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleEditClick(packageItem.id)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDeleteClick(packageItem.id)}
+                      >
+                        Delete
+                      </button>
                     </h5>
                   </td>
                 </tr>

@@ -1,9 +1,8 @@
 import React from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { Package } from '../../types/package';
-import { useNavigate } from 'react-router-dom';
 
-const SaleProduct: React.FC = () => {
+const PendingStock: React.FC = () => {
   const packageData: Package[] = [
     {
       id: 1,
@@ -18,42 +17,40 @@ const SaleProduct: React.FC = () => {
       status: 'Paid',
     },
   ];
-  const navigate = useNavigate();
-
-  const handleEditClick = (id: number) => {
-    navigate(`/franchise/repurchase-order/view-franchise-repurchase/${id}`);
-  };
   return (
     <>
-      <Breadcrumb pageName="SaleProduct" />
+      <Breadcrumb pageName="Franchise Pending Stock View" />
       <div className="rounded-sm border mt-6 border-stroke bg-white px-4 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+        <div
+          className="machine-total"
+          style={{ justifyContent: 'start', marginBottom: '50px' }}
+        >
+          Customer Info
+          <br />
+          Name:- PAPPU KUMAR | Franchise Name: KAJAL ENTERPRISES
+        </div>
         <div className="max-w-full overflow-x-auto custom-scrollbar">
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">
                 <th className="min-w-[200px] py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  Product Id
+                  Sr.No.
                 </th>
                 <th className="min-w-[150px]  py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  Product Image
+                  Product Name
                 </th>
                 <th className="min-w-[130px] py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  Name
+                  Total Qty
                 </th>
                 <th className=" min-w-[150px]  py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  MRP
+                  Total Mrp
                 </th>
+
                 <th className="min-w-[210px]  py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  DP
+                  Total dp
                 </th>
-                <th className="min-w-[210px]  py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  Product bv
-                </th>
-                <th className="min-w-[210px]  py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  QTY
-                </th>
-                <th className="min-w-[210px]  py-2 px-2 font-medium text-black dark:text-white uppercase ">
-                  Action
+                <th className="min-w-[120px] py-2 px-2 font-medium text-black dark:text-white uppercase ">
+                  Total Bv
                 </th>
               </tr>
             </thead>
@@ -70,43 +67,28 @@ const SaleProduct: React.FC = () => {
                     </td>
                     <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
                       <h5 className="font-medium text-black dark:text-white">
-                        Image
-                      </h5>
-                    </td>
-                    <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
-                      <h5 className="font-medium text-black dark:text-white">
                         KESHAR KASHTURI
                       </h5>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
                       <h5 className="font-medium text-black dark:text-white">
-                        130
+                        0
+                      </h5>
+                    </td>
+                    <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
+                      <h5 className="font-medium text-black dark:text-white">
+                        3655
                       </h5>
                     </td>
 
                     <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
                       <h5 className="font-medium text-black dark:text-white">
-                        120
+                        0
                       </h5>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
                       <h5 className="font-medium text-black dark:text-white">
-                        120
-                      </h5>
-                    </td>
-                    <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark">
-                      <h5 className="font-medium text-black dark:text-white">
-                        473
-                      </h5>
-                    </td>
-                    <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark flex gap-2">
-                      <h5 className="font-medium text-black dark:text-white flex items-center gap-2">
-                        <button
-                          className="btn btn-success"
-                          onClick={() => handleEditClick(packageItem.id)}
-                        >
-                          Add To Cart
-                        </button>
+                        2940
                       </h5>
                     </td>
                   </tr>
@@ -116,17 +98,6 @@ const SaleProduct: React.FC = () => {
                   <td colSpan={8}>No data available</td>
                 </tr>
               )}
-              <div
-                className="machine-total"
-                style={{ justifyContent: 'start', marginTop: '10px' }}
-              >
-                <button
-                  className="btn btn-success"
-                  // onClick={() => handleEditClick(packageItem.id)}
-                >
-                  Proceed
-                </button>
-              </div>
             </tbody>
           </table>
         </div>
@@ -135,4 +106,4 @@ const SaleProduct: React.FC = () => {
   );
 };
 
-export default SaleProduct;
+export default PendingStock;

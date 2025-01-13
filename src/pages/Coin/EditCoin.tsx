@@ -1,28 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 
-const AddCoin: React.FC = () => {
+const EditCoin: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('');
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
+
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
   return (
-    <>
-      <Breadcrumb pageName="Coin Add" />
+    <div>
+      <Breadcrumb pageName="Edit Coin List" />
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
         <div className="flex flex-col gap-9">
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
               <h3 className="font-medium text-black dark:text-white">
-                Add Coin
+                Edit Coin
               </h3>
             </div>
             <form action="#">
               <div className="p-6.5">
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
-                    Coin Name
+                    Name
                   </label>
                   <input
                     type="text"
@@ -32,7 +34,7 @@ const AddCoin: React.FC = () => {
                 </div>
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
-                    Coin Symbol
+                    Symbol
                   </label>
                   <input
                     type="text"
@@ -40,17 +42,7 @@ const AddCoin: React.FC = () => {
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
-                <div className="mb-4.5">
-                  <div>
-                    <label className="mb-3 block text-black dark:text-white">
-                      Select icon 256x256
-                    </label>
-                    <input
-                      type="file"
-                      className="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:py-3 file:px-5 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-form-strokedark dark:file:bg-white/30 dark:file:text-white dark:focus:border-primary"
-                    />
-                  </div>
-                </div>
+
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
                     Hash Time in Second
@@ -94,7 +86,7 @@ const AddCoin: React.FC = () => {
 
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
-                    Select Mining Speed Unit
+                    Change Mining unit
                   </label>
                   <div className="relative z-20 bg-transparent dark:bg-form-input">
                     <select
@@ -112,7 +104,7 @@ const AddCoin: React.FC = () => {
                         disabled
                         className="text-body dark:text-bodydark"
                       >
-                        Select Mining Speed Unit
+                        Change Mining unit
                       </option>
                       <option
                         value="T/H"
@@ -167,8 +159,8 @@ const AddCoin: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default AddCoin;
+export default EditCoin;

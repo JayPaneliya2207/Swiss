@@ -49,6 +49,32 @@ import EditMachine from './pages/Machine/EditMachine';
 import Login from './pages/Login/Login';
 import ChangePassword from './pages/Password/ChangePassword';
 
+import EditCoin from './pages/Coin/EditCoin';
+import EditFreeMachine from './pages/MachineRegistration/EditFreeMachine';
+import EditOccupiedMachine from './pages/MachineRegistration/EditOccupiedMachine';
+import EditFranchise from './pages/Franchise/EditFranchise';
+import FranchiseOrderView from './pages/Franchise/FranchiseOrderView';
+import FranchisePendingView from './pages/Franchise/FranchisePendingView';
+import FranchiserepurchaseView from './pages/Franchise/FranchiserepurchaseView';
+import SupportView from './pages/Support/SupportView';
+import RegistrationSetting from './pages/Settings/RegistrationSetting';
+import InvestmentSetting from './pages/Settings/InvestmentSetting';
+import WithdrawalSetting from './pages/Settings/WithdrawalSetting';
+import FundSetting from './pages/Settings/FundSetting';
+import ProfileSetting from './pages/Settings/ProfileSetting';
+import DynamicpagesSetting from './pages/Settings/DynamicpagesSetting';
+import ReInvestmentSetting from './pages/Settings/ReInvestmentSetting';
+import AccountSetting from './pages/Settings/AccountSetting';
+import RegisterWithOTPSetting from './pages/Settings/RegisterWithOTPSetting';
+import BtcAddressOTPSetting from './pages/Settings/BtcAddressOTPSetting';
+import BtcAddressWithOTPSetting from './pages/Settings/BtcAddressWithOTPSetting';
+import LoginWithOTPSetting from './pages/Settings/LoginWithOTPSetting';
+import PaymentMethodSetting from './pages/Settings/PaymentMethodSetting';
+import PaymentMethodAcceptSetting from './pages/Settings/PaymentMethodAcceptSetting';
+import CompanyInfoSetting from './pages/Settings/CompanyInfoSetting';
+import PaymentMethodAcceptUpiSetting from './pages/Settings/PaymentMethodAcceptUpiSetting';
+import PaymentMethodAcceptBankSetting from './pages/Settings/PaymentMethodAcceptBankSetting';
+import PaymentMethodAcceptUsdtSetting from './pages/Settings/PaymentMethodAcceptUsdtSetting';
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
@@ -103,6 +129,17 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/coin/coin-list/edit-coin/:id"
+          element={
+            <>
+              <PageTitle title="edit user" />
+              <EditCoin />
+            </>
+          }
+        />
+
+        {/* machines */}
         <Route
           path="/machines-list"
           element={
@@ -176,6 +213,15 @@ function App() {
           }
         />
         <Route
+          path="/Machine/free-machine-list/edit-free-machine/:id"
+          element={
+            <>
+              <PageTitle title="EditFreeMachine List" />
+              <EditFreeMachine />
+            </>
+          }
+        />
+        <Route
           path="/Machine/occupied-machine-list"
           element={
             <>
@@ -184,6 +230,16 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/Machine/occupied-machine-list/edit-occupied-machine/:id"
+          element={
+            <>
+              <PageTitle title="EditOccupiedMachine List" />
+              <EditOccupiedMachine />
+            </>
+          }
+        />
+        {/* franchise */}
         <Route
           path="/franchise/add-franchise"
           element={
@@ -203,11 +259,29 @@ function App() {
           }
         />
         <Route
+          path="/franchise/franchise-details/edit-franchise/:id"
+          element={
+            <>
+              <PageTitle title="Franchise Edit" />
+              <EditFranchise />
+            </>
+          }
+        />
+        <Route
           path="/franchise/franchise-purchase"
           element={
             <>
               <PageTitle title="Franchise Purchase" />
               <FranchisePurchase />
+            </>
+          }
+        />
+        <Route
+          path="/franchise/franchise-purchase/view-franchise-purchase/:id"
+          element={
+            <>
+              <PageTitle title="Franchise Edit" />
+              <FranchiseOrderView />
             </>
           }
         />
@@ -239,11 +313,29 @@ function App() {
           }
         />
         <Route
+          path="/franchise/pending-stock/view-franchise-pending/:id"
+          element={
+            <>
+              <PageTitle title="Franchise Edit" />
+              <FranchisePendingView />
+            </>
+          }
+        />
+        <Route
           path="/franchise/repurchase-order"
           element={
             <>
               <PageTitle title="Repurchase Order" />
               <RepurchaseOrder />
+            </>
+          }
+        />
+        <Route
+          path="/franchise/repurchase-order/view-franchise-repurchase/:id"
+          element={
+            <>
+              <PageTitle title="Franchise repurchase" />
+              <FranchiserepurchaseView />
             </>
           }
         />
@@ -257,15 +349,6 @@ function App() {
           }
         />
         <Route
-          path="/franchise/withdrawal-approved"
-          element={
-            <>
-              <PageTitle title="Withdrawal Approved" />
-              <WithdrawalApproved />
-            </>
-          }
-        />
-        <Route
           path="/franchise/withdrawal-pending"
           element={
             <>
@@ -274,6 +357,17 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/franchise/withdrawal-approved"
+          element={
+            <>
+              <PageTitle title="Withdrawal Approved" />
+              <WithdrawalApproved />
+            </>
+          }
+        />
+
+        {/* Coin */}
         <Route
           path="/coin/add-coin"
           element={
@@ -338,6 +432,16 @@ function App() {
           }
         />
         <Route
+          path="/support/support-view/:id"
+          element={
+            <>
+              <PageTitle title="SupportView" />
+              <SupportView />
+            </>
+          }
+        />
+        {/* setting */}
+        <Route
           path="/setting/general-setting"
           element={
             <>
@@ -347,6 +451,171 @@ function App() {
           }
         />
         <Route
+          path="/setting/general-setting/registration/:id"
+          element={
+            <>
+              <PageTitle title="Registration settings" />
+              <RegistrationSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/investment/:id"
+          element={
+            <>
+              <PageTitle title="Investment settings" />
+              <InvestmentSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/withdrawal/:id"
+          element={
+            <>
+              <PageTitle title="withdrawal settings" />
+              <WithdrawalSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/fund/:id"
+          element={
+            <>
+              <PageTitle title="Fund settings" />
+              <FundSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/profile/:id"
+          element={
+            <>
+              <PageTitle title="Profile settings" />
+              <ProfileSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/dynamicpages/:id"
+          element={
+            <>
+              <PageTitle title="Dynamicpages settings" />
+              <DynamicpagesSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/reinvestment/:id"
+          element={
+            <>
+              <PageTitle title="Reinvestment settings" />
+              <ReInvestmentSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/account/:id"
+          element={
+            <>
+              <PageTitle title="Account settings" />
+              <AccountSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/registerwithOTP/:id"
+          element={
+            <>
+              <PageTitle title="Register with OTP settings" />
+              <RegisterWithOTPSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/btcaddressOTP/:id"
+          element={
+            <>
+              <PageTitle title="BTC Address OTP settings" />
+              <BtcAddressOTPSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/btcaddresswithOTP/:id"
+          element={
+            <>
+              <PageTitle title="BTC Address With OTP settings" />
+              <BtcAddressWithOTPSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/loginwithOTP/:id"
+          element={
+            <>
+              <PageTitle title="Login with otp settings" />
+              <LoginWithOTPSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/paymentmethod/:id"
+          element={
+            <>
+              <PageTitle title="Payment Method settings" />
+              <PaymentMethodSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/paymentmethodaccept/:id"
+          element={
+            <>
+              <PageTitle title="Payment Accept Method settings" />
+              <PaymentMethodAcceptSetting />
+            </>
+          }
+        />
+
+        <Route
+          path="/setting/general-setting/paymentmethodaccept/upi/:id"
+          element={
+            <>
+              <PageTitle title="UPI settings" />
+              <PaymentMethodAcceptUpiSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/paymentmethodaccept/bank/:id"
+          element={
+            <>
+              <PageTitle title="UPI settings" />
+              <PaymentMethodAcceptBankSetting />
+            </>
+          }
+        />
+        <Route
+          path="/setting/general-setting/paymentmethodaccept/usdt/:id"
+          element={
+            <>
+              <PageTitle title="UPI settings" />
+              <PaymentMethodAcceptUsdtSetting />
+            </>
+          }
+        />
+
+        <Route
+          path="/setting/general-setting/companyinfo/:id"
+          element={
+            <>
+              <PageTitle title="Company Info settings" />
+              <CompanyInfoSetting />
+            </>
+          }
+        />
+
+        {/* <Route
           path="setting/back-up-setting"
           element={
             <>
@@ -356,6 +625,17 @@ function App() {
           }
         />
         <Route path="/logout" element={<PageTitle title="Logout" />} />
+        /> */}
+        <Route
+          path="/logout"
+          element={
+            <>
+              <PageTitle title="Logout" />
+            </>
+          }
+        />
+        {/* other componant */}
+
         <Route
           path="/calendar"
           element={
