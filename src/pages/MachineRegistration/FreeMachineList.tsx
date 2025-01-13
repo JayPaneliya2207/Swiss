@@ -3,21 +3,29 @@ import React from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import '../../css/form.css';
 import { Package } from '../../types/package';
+import { useNavigate } from 'react-router-dom';
 
 const packageData: Package[] = [
-  {
-    name: 'Free package',
-    invoiceDate: `Jan 13,2023`,
-    status: 'Paid',
-  },
+  { id: 1, name: 'Free package', invoiceDate: `Jan 13,2023`, status: 'Paid' },
 ];
 const FreeMachineList: React.FC = () => {
+  const navigate = useNavigate();
 
+  const handleEditClick = (id: number) => {
+    navigate(`/Machine/free-machine-list/edit-free-machine/${id}`);
+  };
+
+  const handleDeleteClick = (id: number) => {
+    console.log('hello', id);
+  };
   return (
     <>
       <Breadcrumb pageName="FreeMachine List" />
       <div className="col-sm-12">
-        <div className="btn-group float-sm-right add-button" style={{justifyContent:"end"}}>
+        <div
+          className="btn-group float-sm-right add-button"
+          style={{ justifyContent: 'end' }}
+        >
           <button className="btn btn-success btn-sm">Add Machines</button>
         </div>
       </div>
@@ -147,8 +155,18 @@ const FreeMachineList: React.FC = () => {
 
                   <td className="border-b border-[#eee] py-5 px-2 dark:border-strokedark flex gap-2">
                     <h5 className="font-medium text-black dark:text-white flex items-center gap-2">
-                      <button className="btn btn-primary">Edit</button>
-                      <button className="btn btn-danger">Delete</button>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleEditClick(packageItem.id)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDeleteClick(packageItem.id)}
+                      >
+                        Delete
+                      </button>
                     </h5>
                   </td>
                 </tr>

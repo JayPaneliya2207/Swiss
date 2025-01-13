@@ -268,12 +268,12 @@ export const MENU: {
         path: '/setting/general-setting',
         icon: 'USER',
       },
-      {
-        id: 40,
-        title: 'Database Backup',
-        path: '/setting/back-up-setting',
-        icon: 'USER',
-      },
+      // {
+      //   id: 40,
+      //   title: 'Database Backup',
+      //   path: '/setting/back-up-setting',
+      //   icon: 'USER',
+      // },
     ],
   },
   {
